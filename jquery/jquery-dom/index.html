@@ -80,7 +80,23 @@
     console.log('Let’s get ready to party with jQuery!');
     $('article').find('img').addClass('image-center');
     $('article').find('p').last().remove();
+    $('#title').css('font-size',`${Math.floor(100 * Math.random())}px`);
+    let listMember = "<li>Whiskey is a better dog.</li>";
+    $('ol').append(listMember);
+    let apology = "<h4>Sorry for the list.</h4>";
+    $('aside').empty().append(apology);
+    
   }
+    
+  let $colors = $(".form-control");
+  $colors.val().on('change', updateColors($colors));
+
+  function updateColors($colors){
+    let colorsText = `rbg(${$($colors[0]).val()}, ${$($colors[1]).val()}, ${$($colors[2]).val()})`;
+    console.log(colorsText);
+    $('body').css('background-color', colorsText);
+  };
+
 </script>
 </body>
 
