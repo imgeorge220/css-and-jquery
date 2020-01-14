@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+        <label for="title">Title</label>
+        <input id="title" type="text">
+
+        <label for="rating">Rating</label>
+        <input id="rating" type="number" min="0" max="10">
+
+        <button id="submit">Submit</button>
+    </form>
+    <table id="chart">
+        <tr>
+            <td>Movie</td>
+            <td>Rating</td>
+            <td>Delete</td>
+        </tr>
+    </table>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+        $('#submit').on('click', addMovie);
+        function addMovie(e){
+            e.preventDefault();
+            let newRow = 
+            `<tr>
+                <td>${$('#title').val()}</td>
+                <td>${$('#rating').val()}</td>
+                <td></td>
+            </tr>`;
+            $('#chart').append(newRow);
+        }
+    </script>
+</html>
