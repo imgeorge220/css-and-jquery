@@ -25,16 +25,24 @@
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
-        $('#submit').on('click', addMovie);
+        $('form').on('submit', addMovie);
+        
         function addMovie(e){
             e.preventDefault();
             let newRow = 
             `<tr>
                 <td>${$('#title').val()}</td>
                 <td>${$('#rating').val()}</td>
-                <td></td>
+                <td>
+                    <button type='button' class='delete-button'>Delete
+                </td>
             </tr>`;
             $('#chart').append(newRow);
+            $('.delete-button').on('click', deleteRow);
+        }
+
+        function deleteRow(e){
+            $(e.target).parent().parent().remove();
         }
     </script>
 </html>
