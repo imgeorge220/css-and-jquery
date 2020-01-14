@@ -85,17 +85,19 @@
     $('ol').append(listMember);
     let apology = "<h4>Sorry for the list.</h4>";
     $('aside').empty().append(apology);
-    
   }
     
   let $colors = $(".form-control");
-  $colors.val().on('change', updateColors($colors));
+  $colors.on('change', updateColors);
 
-  function updateColors($colors){
-    let colorsText = `rbg(${$($colors[0]).val()}, ${$($colors[1]).val()}, ${$($colors[2]).val()})`;
-    console.log(colorsText);
+  function updateColors(){
+    let colorsText = `rgb(${$colors.eq(0).val()}, ${$colors.eq(1).val()}, ${$colors.eq(2).val()})`;
     $('body').css('background-color', colorsText);
   };
+
+  $("img").on('click', function (e) {
+    $(e.target).remove();
+  });
 
 </script>
 </body>
